@@ -1,5 +1,4 @@
 import React, { Component  } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Cover } from '../Cover';
 import { searchURL, artistURL } from '../spotifyURL';
@@ -53,13 +52,13 @@ export default class ArtistSearch extends Component {
                 if(artist.images[0]!=undefined){
                     let hasImage = artist.images[0];
                     results.push(
-                        <div className="col-md-3" key={index} >
+                        <div className="col" key={index} >
                             <Cover
                                 name={artist.name}
                                 id={artist.id}
                                 followers={artist.followers.total}
                                 popularity={artist.popularity}
-
+                                key={index}
                                 imageURL={hasImage.url}
                                 onClick={(event) => this.searchAlbums(event,artist.id, artist.name)}
                                 text="Show Albums"
@@ -90,6 +89,7 @@ export default class ArtistSearch extends Component {
             `/artistAlbum/${artistId}/${cleanName}`,
             {
                 data: { albums },
+                name: { name },
                 current_user: { user: this.state.current_user.user },
                 auth: { authToken }
             }

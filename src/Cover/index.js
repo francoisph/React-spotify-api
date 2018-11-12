@@ -13,23 +13,26 @@ const Cover = ({ imageURL, name, id, followers, popularity, artists, release_dat
                     style={styles.imageStyles}
                 />
                 <div className="cover-body">
-                    <h4 className="cover-title">{name}</h4>
-                    <p className="cover-text">{followers ? followers + ' followers' : ''}</p>
-                    <p className="cover-text">
-                    { followers ?
-                      <ReactStars
-                          count={5}
-                          value={ popularity ? (popularity*5)/100 : 0}
-                          size={24}
-                          color2={'#ffd700'} />
-                      : ''}
-                    </p>
-                    <p className="cover-text">{artists ? artists : ''}</p>
-                    <p className="cover-text">{release_date ? release_date : ''}</p>
-                    <p className="cover-text">{total_tracks ? total_tracks + ' tracks' : ''}</p>
-                    <p className="cover-text">{albumURL ? <a href={albumURL}>Open in Spotify</a>: ''}
-                    </p>
+                    <h4 className="cover-title">{name.length > 30 ? name.substr(0, 27) + '...' : name }</h4>
+                    <div className="cover-text">{followers ? followers + ' followers' : ''}</div>
+                    <div className="cover-text">{artists ? artists : ''}</div>
+                    <div className="cover-text">{release_date ? release_date : ''}</div>
+                    <div className="cover-text">{total_tracks ? total_tracks + ' tracks' : ''}</div>
                 </div>
+                { followers ?
+                  <div className="cover-stars">
+                    <ReactStars
+                        count={5}
+                        value={ popularity ? (popularity*5)/100 : 0}
+                        size={24}
+                        color2={'#ffd700'} />
+                  </div>
+                : ''}
+                {albumURL ?
+                    <a href={albumURL}>
+                      <div className="cover-link" > <div className="cover-link-title" > Preview in Spotify </div></div>
+                    </a>
+                : ''}
             </div>
         )
     }else{

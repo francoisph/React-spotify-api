@@ -1,6 +1,7 @@
 
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -47,63 +48,57 @@ code {
     monospace;
 }
 
-
-.cover-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-}
-
-.cover-close .dropdown-toggle {
-    color: #999;
-    background: none;
-    border: none;
-}
-
-.cover-close .dropdown-toggle:after {
-    display: none;
-}
-
-.cover-close .dropdown-menu {
-    border: none;
-    min-width: auto;
-    font-size: 0.9em;
-    border-radius: 0;
-    -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), -2px -2px 3px rgba(0, 0, 0, 0.1);
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), -2px -2px 3px rgba(0, 0, 0, 0.1);
-}
-
-.cover-close .dropdown-menu a {
-    color: #999 !important;
-}
-
-.cover-close .dropdown-menu a:hover {
-    background: #27ae60;
-    color: #fff !important;
-}
-
-.cover-close .dropdown-menu a i {
-    margin-right: 10px;
-    -webkit-transition: none;
-    transition: none;
-}
-
 .cover {
-    margin-bottom: 0;
+    background-color: #fff;
+    border: 0 solid #eee;
     -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1), -1px 0 2px rgba(0, 0, 0, 0.05);
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1), -1px 0 2px rgba(0, 0, 0, 0.05);
+    max-width: 200px;
 }
 
-.cover-header {
-    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
+.cover-body {
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    /* min-height: 136px; */
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
 }
 
-.cover-header h1,
-.cover-header h2,
-.cover-header h3,
-.cover-header h4,
-.cover-header h5,
-.cover-header h6 {
-    margin-bottom: 0;
+.cover-title {
+    min-height: 52px;
+    margin-bottom: 0.25rem;
+}
+.cover-stars {
+    padding-left: 0.5rem;
+}
+a {
+  color: #464a4c;
+  text-decoration:none;
+}
+a:hover{
+    text-decoration: none;
+    color: #464a4c;
+}
+.cover-link {
+    height:40px;
+    text-align: center;
+    background-color: #A9A9A9;
+}
+.cover-link-title {
+    text-decoration:none;
+    padding-top:7px;
+}
+.cover-img {
+    border-radius: calc(0 - 0);
+}
+.cover-img-top {
+    border-top-left-radius: calc(0 - 0);
+    border-top-right-radius: calc(0 - 0);
+}
+
+.cover-img-bottom {
+    border-bottom-right-radius: calc(0 - 0);
+    border-bottom-left-radius: calc(0 - 0);
 }

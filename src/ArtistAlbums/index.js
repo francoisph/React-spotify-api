@@ -22,18 +22,20 @@ export default class ArtistAlbums extends Component {
     }
 
     showAlbums = (albums) => {
-        if(albums!=undefined){
+        if(albums!=undefined && albums.length > 0){
             let results = [];
             console.log('showAlbums ', albums);
             albums.map((album, index) => {
                 if(album.images[0]!=undefined){
                     let hasImage = album.images[0];
                     let artists = '';
-                    album.artists.map((artist, index) => {
-                      artists += artist.name + ' '
-                    })
+                    if( album.artists!=undefined ) {
+                      album.artists.map((artist, index) => {
+                        artists += artist.name + ' '
+                      })
+                    }
                     results.push(
-                        <div className="col-md-3">
+                        <div className="col" key={index}>
                             <Cover
                                 name={album.name}
                                 id={album.id}
@@ -51,7 +53,7 @@ export default class ArtistAlbums extends Component {
             })
             return results
         }else{
-            return <p></p>
+            return <p>No Albums</p>
         }
     }
 
@@ -59,6 +61,9 @@ export default class ArtistAlbums extends Component {
         const {
             data: {
                 albums
+            },
+            name:  {
+                name
             },
             current_user: {
                 user: {
@@ -72,7 +77,7 @@ export default class ArtistAlbums extends Component {
             <div>
                 <div className="justify-content-center mt-5 row">
                     <p className="text-center display-5">
-                        Album Results for { albums[0].artists[0].name}
+                        Album Results for { name }
                     </p>
                 </div>
                 <div className="row">
