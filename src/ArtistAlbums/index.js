@@ -41,6 +41,7 @@ export default class ArtistAlbums extends Component {
                                 release_date={album.release_date}
                                 total_tracks={album.total_tracks}
                                 key={index}
+                                albumURL={album.external_urls.spotify}
                                 imageURL={hasImage.url}
                                 text="Show Tracks"
                             />
